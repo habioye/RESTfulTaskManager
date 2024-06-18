@@ -1,0 +1,10 @@
+Day 2: Portfolio Website Using Angular and Bootstrap
+Lesson Topics:
+Introduction to Bootstrap
+Styling with CSS in Angular
+Angular Routing
+Project (Single Dev): Portfolio Website
+Develop a portfolio website using Angular and Bootstrap.
+Setup home, about, projects, and contact pages.
+Implement navigation between pages.
+Utilize ngForm for the contact page to handle form submission.
