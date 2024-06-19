@@ -1,9 +1,9 @@
-package com.example.JWTSpringdemo.service;
+package Hassan.TaskManager.TaskManager.Service;
 
 
 
-import com.example.JWTSpringdemo.entity.UserInfo;
-import com.example.JWTSpringdemo.repository.UserInfoRepository;
+import Hassan.TaskManager.TaskManager.Entity.User;
+import Hassan.TaskManager.TaskManager.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ import java.util.Optional;
 public class UserInfoService implements UserDetailsService {
 
     @Autowired
-    private UserInfoRepository repository;
+    private UserRepository repository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -25,14 +25,14 @@ public class UserInfoService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        Optional<UserInfo> userDetail = repository.findByName(username);
+        Optional<User> userDetail = repository.findByName(username);
 
         // Converting userDetail to UserDetails
         return userDetail.map(UserInfoDetails::new)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found " + username));
     }
 
-    public String addUser(UserInfo userInfo) {
+    public String addUser(User userInfo) {
         userInfo.setPassword(encoder.encode(userInfo.getPassword()));
         repository.save(userInfo);
         return "User Added Successfully";
