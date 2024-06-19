@@ -1,7 +1,7 @@
 package Hassan.TaskManager.TaskManager.Filter;
 
-import com.example.JWTSpringdemo.service.JwtService;
-import com.example.JWTSpringdemo.service.UserInfoService;
+import Hassan.TaskManager.TaskManager.Service.JwtService;
+import Hassan.TaskManager.TaskManager.Service.UserInfoService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
