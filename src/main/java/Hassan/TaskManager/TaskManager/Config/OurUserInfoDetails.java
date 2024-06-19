@@ -1,6 +1,6 @@
 package Hassan.TaskManager.TaskManager.Config;
 
-import com.springSecurityUpdated.springSecurityUpdated.model.OurUser;
+import Hassan.TaskManager.TaskManager.Entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,10 +15,11 @@ public class OurUserInfoDetails implements UserDetails {
     private String password;
     private List<GrantedAuthority> roles;
 
-    public OurUserInfoDetails(OurUser ourUser){
-        this.email = ourUser.getEmail();
-        this.password = ourUser.getPassword();
-        this.roles = Arrays.stream(ourUser.getRoles().split(","))
+    public OurUserInfoDetails(User user){
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        Object SimpleGrantedAuthority;
+        this.roles = Arrays.stream(user.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
